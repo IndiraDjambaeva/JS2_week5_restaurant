@@ -119,35 +119,76 @@
 // console.log(mary.greet());
 
 
-//Ex5
+// //Ex5
+// class Restaurant {
+//   constructor(restName, cousin) {
+//     this.restName = restName;
+//     this.cousin = cousin;
+//   }
+
+//   type() {
+//     return `This is ${this.restName} with ${this.cousin} cousin`;
+//   }
+// }
+
+// class Worktime extends Restaurant {
+//   constructor(openTime, closeTime) {
+//     super(restName, cousin);
+//     this.openTime = openTime;
+//     this.closeTime = closeTime;
+//   }
+ 
+//   type() {
+//     return (super.greet() + " Open: " + this.openTime + " Close: " + this.closeTime);
+//   }
+// }
+
+// const aba = new Restaurant("ABA", "asian");
+// console.log(aba.type());
+
+// const mary = new Worktime("Mary", "europe", "9:00", "22:00");
+// console.log(mary.type());
+
+
+//Ex6
 class Restaurant {
-  constructor(restName, cousin) {
-    this.restName = restName;
+  constructor(name, cousin) {
+    this.name = name;
     this.cousin = cousin;
   }
 
-  type() {
-    return `This is ${this.restName} with ${this.cousin} cousin`;
+  showInfo() {
+    return `This is ${this.name} with ${this.cousin} cousin`;
+  }
+
+  isOpen() {
+    // let currentHour = new Date()
+    //let currentHour = new Date().now()
+    let currentHour = new Date().getHours();
+    let currentDay = 5;
+    
+    if (currentDay === 6 || currentDay === 0) {
+      return `${this.name} is closed`
+    } else {
+        if (currentHour > 1 && currentHour < 22) {
+        return `${this.name} is open`
+      } else {
+        return `${this.name} is closed`
+      }
+    }
+
+   
   }
 }
+  
 
-class Worktime extends Restaurant {
-  constructor(openTime, closeTime) {
-    super(restName, cousin);
-    this.openTime = openTime;
-    this.closeTime = closeTime;
-  }
- 
-  type() {
-    return (super.greet() + " Open: " + this.openTime + " Close: " + this.closeTime);
-  }
-}
+const aaa = new Restaurant("AAA", "asian");
+const bbb = new Restaurant("BBB", "europe");
 
-const aba = new Restaurant("ABA", "asian");
-console.log(aba.type());
+console.log(aaa.showInfo());
+console.log(bbb.showInfo());
+console.log(aaa.isOpen());
 
-const mary = new Worktime("Mary", "europe", "9:00", "22:00");
-console.log(mary.type());
 
 
 
